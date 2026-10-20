@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-blush-50 font-sans text-ink antialiased;
+    overflow-x: hidden;
+  }
+  html[lang="ar"] body {
+    font-family: "Noto Naskh Arabic", "Jost", system-ui, sans-serif;
+    line-height: 1.75;
+  }
+  html[lang="ar"] .font-serif {
+    font-family: "Amiri", Georgia, serif;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.rosegold.dark");
+    outline-offset: 3px;
+  }
+  img {
+    @apply max-w-full;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10;
+  }
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.22em] text-rosegold-dark;
+  }
+  html[lang="ar"] .eyebrow {
+    letter-spacing: 0;
+    text-transform: none;
+    font-size: 0.9rem;
+  }
+  .btn {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 px-7 text-sm font-medium tracking-wide transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-ink text-blush-50 hover:bg-rosegold-dark;
+  }
+  .btn-outline {
+    @apply btn border border-ink text-ink hover:bg-ink hover:text-blush-50;
+  }
+  .btn-whatsapp {
+    @apply btn bg-rosegold-dark text-white hover:bg-ink;
+  }
+  .field {
+    @apply min-h-[48px] w-full border border-stone-warm/40 bg-white/70 px-4 text-sm text-ink placeholder:text-stone-warm/70 focus:border-rosegold-dark;
+  }
+  .chip {
+    @apply inline-flex min-h-[44px] items-center justify-center border px-4 text-sm transition-colors duration-200;
+  }
+}
+
+/* Scroll reveal — disabled automatically for users who prefer reduced motion */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
