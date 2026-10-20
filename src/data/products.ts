@@ -21,10 +21,7 @@ const colors: Record<string, ProductColor> = {
   noir: { id: "noir", name: { fr: "Noir", ar: "أسود" }, hex: "#2A2426" },
 };
 
-const SAMPLE_DESC = {
-  fr: "Produit d'exemple : remplacez ce texte par la description de votre pièce.",
-  ar: "منتج تجريبي: استبدل هذا النص بوصف قطعتك.",
-};
+
 
 export const products: Product[] = [
   {
